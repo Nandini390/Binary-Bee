@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AllyBot Chat</title>
+  <link rel="stylesheet" href="AllyBot.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Lavender theme overrides */
+    :root {
+      --primary-color: #9370DB; /* Lavender color */
+      --primary-dark: #7B68EE;  /* Medium slate blue - darker lavender */
+      --primary-light: #E6E6FA; /* Lavender mist - lighter lavender */
+      --text-on-primary: #FFFFFF;
+      --accent-color: #8A2BE2; /* Blue violet - complementary accent */
+      --teachally-color: #501885; /* TeachAlly brand color */
+    }
+
+    /* Navbar size increase and styling - WHITE BACKGROUND */
+    .navbar {
+      background-color: #FFFFFF;
+      padding: 12px 0;
+    }
+
+    .nav-container {
+      padding: 18px 25px; /* Increased padding for larger navbar */
+    }
+
+    /* Logo styling */
+    .logo {
+      height: 60px; /* Increased logo size */
+      width: 60px;
+      border-radius: 50%; /* Make it circular */
+      /* border: 3px solid var(--teachally-color); TeachAlly color border */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Text color adjustments for white navbar */
+    .website-name {
+      color: var(--teachally-color); /* TeachAlly brand color */
+      font-size: 1.8rem;
+    }
+
+    .nav-link {
+      color: #000000; /* Black text */
+      font-size: 1.1rem;
+      padding: 10px 8px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-dark);
+      background-color: var(--primary-light); /* Lavender background on hover */
+      border-radius: 5px;
+    }
+
+    .profile-icon {
+      color: #000000; /* Black icon */
+    }
+
+    .login-signup-link {
+      color: #000000; /* Black text */
+    }
+
+    .login-signup-link:hover {
+      color: var(--primary-dark);
+      background-color: var(--primary-light); /* Lavender background on hover */
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* Update dropdown arrow color */
+    .nav-link svg {
+      color: #000000 !important; /* Black arrows */
+    }
+
+    /* Body background color - Light lavender */
+    body {
+      background-color: #f0e6ff; /* Light lavender background */
+    }
+
+    /* Chat container theme adjustments */
+    #chat-form button {
+      background-color: var(--primary-color);
+    }
+    
+    #chat-form button:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .user-message {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    
+    #chat-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(147, 112, 219, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <img src="logo.png" alt="TeachAlly Logo" class="logo">
+            <span class="website-name"><b>TeachAlly</b></span>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-item dropdown">
+                <button class="nav-link">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Quick Start</a>
+                    <a href="#">Featured</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">Discussion Community <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">Forums</a>
+                    <a href="#">Topic Threads</a>
+                    <a href="#">Recent Discussions</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">AllyBot <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">AI Tutor</a>
+                    <a href="#">Study Assistance</a>
+                    <a href="#">Learning Tools</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">Profile <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">My Account</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+            <div class="nav-item profile-icon-container">
+                <i class="fas fa-user-circle profile-icon"></i>
+                <a href="#" class="login-signup-link">Login/Signup</a>
+            </div>
+        </div>
+    </div>
+</nav>
+  <div class="chat-container">
+    <div class="chat-header">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/c8/c8/64/c8c8645c-4009-5937-d5e1-44a7a48230ea/AppIcon-1x_U007emarketing-0-10-0-85-220.png/1200x630wa.png" alt="AllyBot Logo" class="ally-logo">
+      <h2>AllyBot - Ask Your Doubts</h2>
+    </div>
+    <div id="chat-messages"></div>
+    <form id="chat-form">
+      <input type="text" id="chat-input" placeholder="Type your question here..." autocomplete="off" required />
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+    </form>
+  </div>
+  <script src="AllyBot.js"></script>
+</body>
+</html>
