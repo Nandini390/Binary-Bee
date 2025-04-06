@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classes | Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="MyClassMainHome.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="logo.png" alt="TeachAlly Logo" class="logo">
+                    <span class="website-name">TeachAlly</span>
+                </div>
+                <div class="nav-menu">
+                    <div class="nav-item dropdown">
+                        <button class="nav-link">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                            <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                        <div class="dropdown-content">
+                            <a href="#">Dashboard</a>
+                            <a href="#">Quick Start</a>
+                            <a href="#">Featured</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <button class="nav-link">Discussion Community <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                            <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                        <div class="dropdown-content">
+                            <a href="#">Forums</a>
+                            <a href="#">Topic Threads</a>
+                            <a href="#">Recent Discussions</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <button class="nav-link">AllyBot <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                            <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                        <div class="dropdown-content">
+                            <a href="#">AI Tutor</a>
+                            <a href="#">Study Assistance</a>
+                            <a href="#">Learning Tools</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <button class="nav-link">Profile <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                            <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                        <div class="dropdown-content">
+                            <a href="#">My Account</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+                    <div class="nav-item profile-icon-container">
+                        <i class="fas fa-user-circle profile-icon"></i>
+                        <a href="#" class="login-signup-link">Login/Signup</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <div class="welcome-section">
+                    <h2>My Classes</h2>
+                    <p> <b> Continue your learning journey with these courses</b></p>
+                </div>
+                <div class="search-filter">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for classes...">
+                    </div>
+                    <div class="filter-dropdown">
+                        <select id="sortDropdown">
+                            <option>All Subjects</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Cards Grid -->
+            <div class="subjects-grid" id="subjectsGrid">
+                <!-- Subject cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Ask Doubt Modal -->
+    <div class="modal-backdrop" id="doubtModal">
+        <div class="ask-doubt-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-chalkboard-teacher"></i> Ask Your Teacher</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-content">
+                <div class="teacher-info">
+                    <img src="/api/placeholder/50/50" alt="Teacher" class="teacher-avatar">
+                    <div class="teacher-details">
+                        <h4 id="teacherName">Dr. Sarah Johnson</h4>
+                        <p id="modalSubject">Computer Science</p>
+                    </div>
+                </div>
+                <div class="doubt-form">
+                    <label for="doubtTitle">Subject of your doubt:</label>
+                    <input type="text" id="doubtTitle" placeholder="E.g., Help with Python functions">
+                    
+                    <label for="doubtDescription">Describe your doubt in detail:</label>
+                    <textarea id="doubtDescription" rows="5" placeholder="Please be specific about what you're struggling with..."></textarea>
+                    
+                    <div class="attachment-area">
+                        <p><i class="fas fa-paperclip"></i> Attachments</p>
+                        <div class="file-upload">
+                            <label for="fileUpload" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Upload File</span>
+                            </label>
+                            <input type="file" id="fileUpload" hidden>
+                            <span class="file-limit">Max 5MB (Images, PDFs, DOCs)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="reply-preference">
+                        <p>Preferred reply method:</p>
+                        <div class="preference-options">
+                            <label>
+                                <input type="radio" name="replyMethod" value="email" checked>
+                                <span>Email</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="replyMethod" value="platform">
+                                <span>Platform Message</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="replyMethod" value="session">
+                                <span>Next Class Session</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p class="response-time"><i class="fas fa-clock"></i> Teachers typically respond within 24 hours</p>
+                <div class="modal-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="submit-btn">Send to Teacher</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-wave"></div>
+        
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Explore TeachAlly</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">AI Tutor</a></li>
+                    <li><a href="#">Community Forums</a></li>
+                    <li><a href="#">Learning Resources</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Learning Resources</h3>
+                <ul>
+                    <li><a href="#">Math Help Center</a></li>
+                    <li><a href="#">Science Experiments</a></li>
+                    <li><a href="#">Language Arts</a></li>
+                    <li><a href="#">Coding & Technology</a></li>
+                    <li><a href="#">Study Techniques</a></li>
+                    <li><a href="#">Homework Helper</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Ave, Learning City</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@teachally.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest in education technology and learning resources.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                
+                <h3 style="margin-top: 20px;">Popular Topics</h3>
+                <div class="interactive-buttons">
+                    <a href="#" class="interactive-button">#Mathematics</a>
+                    <a href="#" class="interactive-button">#Science</a>
+                    <a href="#" class="interactive-button">#Coding</a>
+                    <a href="#" class="interactive-button">#Languages</a>
+                    <a href="#" class="interactive-button">#History</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Elements -->
+        <div class="floating-learning-bubble">
+            <i class="fas fa-graduation-cap fa-2x"></i>
+        </div>
+        
+        <div class="footer-brain"></div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TeachAlly - Illuminating Minds, Empowering Futures | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="MyClassMainHome.js"></script>
+</body>
+</html>
