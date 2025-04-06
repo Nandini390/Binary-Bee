@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discussion Community</title>
+  <link rel="stylesheet" href="DiscussionCommunity.css">
+  
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <img src="logo.png" alt="TeachAlly Logo" class="logo">
+            <span class="website-name">TeachAlly</span>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-item dropdown">
+                <button class="nav-link">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Quick Start</a>
+                    <a href="#">Featured</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">Discussion Community <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">Forums</a>
+                    <a href="#">Topic Threads</a>
+                    <a href="#">Recent Discussions</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">AllyBot <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">AI Tutor</a>
+                    <a href="#">Study Assistance</a>
+                    <a href="#">Learning Tools</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <button class="nav-link">Profile <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                <div class="dropdown-content">
+                    <a href="#">My Account</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+            <div class="nav-item profile-icon-container">
+                <i class="fas fa-user-circle profile-icon"></i>
+                <a href="#" class="login-signup-link">Login/Signup</a>
+            </div>
+        </div>
+    </div>
+</nav>
+  
+  <div class="container">
+    <div class="main-content">
+      <aside class="sidebar">
+        <div class="community-info">
+          <h2>About Our Community</h2>
+          <p>Welcome to the Discussion Community! We're a group dedicated to sharing knowledge, asking questions, and supporting each other with academic studies and learning challenges.</p>
+          <p>Join our community of students, educators, and lifelong learners from around the world.</p>
+          <button class="join-button">Join Community</button>
+        </div>
+        
+        <div class="members">
+          <h3>Active Members</h3>
+          <div class="member-list">
+            <div class="member">Sarah</div>
+            <div class="member">Alex</div>
+            <div class="member">Jordan</div>
+            <div class="member">Emily</div>
+            <div class="member">Chris</div>
+            <div class="member">+8 more</div>
+          </div>
+        </div>
+      </aside>
+      
+      <main class="discussions">
+        <h2>
+          <span>💬</span> Discussion Forum
+          <button class="create-discussion">Start New Discussion</button>
+        </h2>
+        
+        <div class="search-bar">
+          <input type="text" placeholder="Search discussions...">
+          <button>Search</button>
+        </div>
+        
+        <div class="discussion-list">
+          <div class="discussion-item">
+            <div class="discussion-header">
+              <div class="discussion-title">Struggling with Calculus Integration Techniques</div>
+              <div class="discussion-meta">Posted by Sarah · 2 days ago</div>
+            </div>
+            <div class="discussion-preview">
+              I've been having trouble with integration by parts and substitution methods. The textbook examples seem straightforward, but when I try practice problems, I get stuck. Does anyone have tips on when to use which technique?
+            </div>
+            <div class="discussion-footer">
+              <div class="discussion-stats">
+                <div class="stat">👁 45 views</div>
+                <div class="stat">💬 12 replies</div>
+              </div>
+              <div class="discussion-tags">
+                <div class="tag">Mathematics</div>
+                <div class="tag">Calculus</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="discussion-item">
+            <div class="discussion-header">
+              <div class="discussion-title">Best Resources for Learning Statistical Analysis in R</div>
+              <div class="discussion-meta">Posted by Alex · 1 week ago</div>
+            </div>
+            <div class="discussion-preview">
+              I need to conduct statistical analysis for my research project using R, but I'm a complete beginner. Has anyone found particularly helpful tutorials or courses? I'm especially interested in ANOVA and regression analysis...
+            </div>
+            <div class="discussion-footer">
+              <div class="discussion-stats">
+                <div class="stat">👁 78 views</div>
+                <div class="stat">💬 23 replies</div>
+              </div>
+              <div class="discussion-tags">
+                <div class="tag">Statistics</div>
+                <div class="tag">Programming</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="discussion-item">
+            <div class="discussion-header">
+              <div class="discussion-title">Understanding Literary Criticism Approaches</div>
+              <div class="discussion-meta">Posted by Jordan · 3 days ago</div>
+            </div>
+            <div class="discussion-preview">
+              I'm writing an essay on Jane Austen's "Pride and Prejudice" and need to incorporate different critical lenses. I understand feminist criticism, but I'm struggling with how to apply postcolonial and Marxist approaches...
+            </div>
+            <div class="discussion-footer">
+              <div class="discussion-stats">
+                <div class="stat">👁 36 views</div>
+                <div class="stat">💬 8 replies</div>
+              </div>
+              <div class="discussion-tags">
+                <div class="tag">Literature</div>
+                <div class="tag">Literary Criticism</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="discussion-item">
+            <div class="discussion-header">
+              <div class="discussion-title">Tips for Memorizing Organic Chemistry Reactions</div>
+              <div class="discussion-meta">Posted by Emily · 5 days ago</div>
+            </div>
+            <div class="discussion-preview">
+              I have an upcoming exam and need to memorize dozens of reaction mechanisms. Flash cards aren't working well for me. Has anyone found effective memory techniques specifically for organic chemistry?
+            </div>
+            <div class="discussion-footer">
+              <div class="discussion-stats">
+                <div class="stat">👁 92 views</div>
+                <div class="stat">💬 31 replies</div>
+              </div>
+              <div class="discussion-tags">
+                <div class="tag">Chemistry</div>
+                <div class="tag">Study Methods</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-wave"></div>
+    
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>Explore TeachAlly</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">AI Tutor</a></li>
+                <li><a href="#">Community Forums</a></li>
+                <li><a href="#">Learning Resources</a></li>
+                <li><a href="#">Success Stories</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Learning Resources</h3>
+            <ul>
+                <li><a href="#">Math Help Center</a></li>
+                <li><a href="#">Science Experiments</a></li>
+                <li><a href="#">Language Arts</a></li>
+                <li><a href="#">Coding & Technology</a></li>
+                <li><a href="#">Study Techniques</a></li>
+                <li><a href="#">Homework Helper</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> 123 Education Ave, Learning City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> support@teachally.com</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for the latest in education technology and learning resources.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+            
+            <h3 style="margin-top: 20px;">Popular Topics</h3>
+            <div class="interactive-buttons">
+                <a href="#" class="interactive-button">#Mathematics</a>
+                <a href="#" class="interactive-button">#Science</a>
+                <a href="#" class="interactive-button">#Coding</a>
+                <a href="#" class="interactive-button">#Languages</a>
+                <a href="#" class="interactive-button">#History</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Interactive Elements -->
+    <div class="floating-learning-bubble">
+        <i class="fas fa-graduation-cap fa-2x"></i>
+    </div>
+    
+    <div class="footer-brain"></div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 TeachAlly - Illuminating Minds, Empowering Futures | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+</footer>
+  <script src="DiscussionCommunity.js"></script>
+</body>
+</html>
