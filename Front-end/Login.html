@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TeachAlly - AI Teacher Assistant Login</title>
+  <link rel="stylesheet" href="Login.css" />
+</head>
+<body>
+  <div class="page-container">
+    <div class="login-container">
+      <div class="login-image">
+        <h1 class="animated-tagline">Welcome to TeachAlly</h1>
+        <p>Revolutionizing education through intelligent technology and personalized learning experiences.</p>
+      </div>
+      <div class="login-content">
+        <div class="logo">
+          <img src="logo.png" alt="TeachAlly Logo" />
+        </div>
+
+        <!-- Initial Selection -->
+        <div class="initial-selection" id="initialSelection">
+          <button id="loginBtn">Login</button>
+          <button id="signupBtn">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-initial" id="loginInitial" style="display: none;">
+          <h2>Login</h2>
+          <form id="basicLoginForm">
+            <div class="form-group">
+              <label for="basicUsername">Username</label>
+              <input type="text" id="basicUsername" placeholder="Enter your username" required />
+            </div>
+            <div class="form-group">
+              <label for="basicPassword">Password</label>
+              <input type="password" id="basicPassword" placeholder="Enter your password" required />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+          <p class="center-text">OR</p>
+          <button class="google-login">Continue with Google</button>
+          <div class="back-bottom">
+            <button id="backToInitial1">Back</button>
+          </div>
+        </div>
+
+        <!-- Sign Up Options -->
+        <div class="signup-selection" id="signupSelection" style="display: none;">
+          <div class="user-selection">
+            <button class="user-btn" id="teacherSignupBtn">Teacher Sign Up</button>
+            <button class="user-btn" id="studentSignupBtn">Student Sign Up</button>
+          </div>
+          <div class="back-bottom">
+            <button id="backToInitial2">Back</button>
+          </div>
+        </div>
+
+        <!-- Teacher Sign Up Form -->
+        <div class="signup-form" id="teacherSignupForm" style="display: none;">
+          <h2>Teacher Sign Up</h2>
+          <form id="teacherForm">
+            <div class="form-group"><label>Username</label><input type="text" required /></div>
+            <div class="form-group"><label>Email</label><input type="email" required /></div>
+            <div class="form-group"><label>Password</label><input type="password" required /></div>
+            <div class="form-group"><label>Mobile Number</label><input type="tel" required /></div>
+            <div class="form-group"><label>School/College</label><input type="text" required /></div>
+            <button type="submit">Sign Up</button>
+          </form>
+          <div class="back-bottom"><button class="backToSignup">Back</button></div>
+        </div>
+
+        <!-- Student Sign Up Form -->
+        <div class="signup-form" id="studentSignupForm" style="display: none;">
+          <h2>Student Sign Up</h2>
+          <form id="studentForm">
+            <div class="form-group"><label>Username</label><input type="text" required /></div>
+            <div class="form-group"><label>Email</label><input type="email" required /></div>
+            <div class="form-group"><label>Password</label><input type="password" required /></div>
+            <div class="form-group"><label>Roll Number</label><input type="text" required /></div>
+            <div class="form-group"><label>Mobile Number</label><input type="tel" required /></div>
+            <div class="form-group"><label>School/College</label><input type="text" required /></div>
+            <button type="submit">Sign Up</button>
+          </form>
+          <div class="back-bottom"><button class="backToSignup">Back</button></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 TeachAlly. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="Login.js"></script>
+</body>
+</html>
