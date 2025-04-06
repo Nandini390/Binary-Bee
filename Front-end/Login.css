@@ -1,0 +1,137 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f8ff;
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .login-container {
+    display: flex;
+    flex: 1;
+  }
+  
+  .login-image {
+    background: linear-gradient(to right, #9769c6, #723494);
+    color: white;
+    padding: 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login-content {
+    flex: 1;
+    background: #f8f8ff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px;
+    border: none;
+    background-color: #7c3aed;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #6d28d9;
+  }
+  
+  .user-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .user-btn {
+    background-color: #7c3aed;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .google-login {
+    background-color: #7c3aed;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .back-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .site-footer {
+    background-color: #eee;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: #7c3aed;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .animated-tagline {
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .center-text {
+    text-align: center;
+    margin: 10px 0;
+  }
