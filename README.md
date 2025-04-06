@@ -90,12 +90,7 @@ Low Engagement                     Community forum + direct messaging for better
  Database     | Firestore (Firebase)              
  Auth         | Firebase Authentication (JWT)     
  Storage      | Firebase Storage                  
-
-# Quick Access
-
-- [GitHub Repository](#)  
-- [Live MVP](#)  
-- [Demo Video](#)  
+  
 
 # Future Enhancements
 
