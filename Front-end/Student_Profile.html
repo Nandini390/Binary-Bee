@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Student_Profile.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.png" alt="TeachAlly Logo" class="logo">
+                <span class="website-name">TeachAlly</span>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item dropdown">
+                    <button class="nav-link">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                    <div class="dropdown-content">
+                        <a href="#">Dashboard</a>
+                        <a href="#">Quick Start</a>
+                        <a href="#">Featured</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="nav-link">Discussion Community <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                    <div class="dropdown-content">
+                        <a href="#">Forums</a>
+                        <a href="#">Topic Threads</a>
+                        <a href="#">Recent Discussions</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="nav-link">AllyBot <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                    <div class="dropdown-content">
+                        <a href="#">AI Tutor</a>
+                        <a href="#">Study Assistance</a>
+                        <a href="#">Learning Tools</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="nav-link">Profile <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></button>
+                    <div class="dropdown-content">
+                        <a href="#">My Account</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+                <div class="nav-item profile-icon-container">
+                    <i class="fas fa-user-circle profile-icon"></i>
+                    <a href="#" class="login-signup-link">Login/Signup</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation Sidebar with Arrows -->
+    <div class="nav-sidebar">
+        <div class="nav-item active" data-target="performance">
+            <i class="fas fa-chart-line"></i>
+            <span>Performance</span>
+            <i class="fas fa-chevron-right nav-arrow"></i>
+        </div>
+        <div class="nav-item" data-target="subjects">
+            <i class="fas fa-book"></i>
+            <span>Subjects</span>
+            <i class="fas fa-chevron-right nav-arrow"></i>
+        </div>
+        <div class="nav-item" data-target="attendance">
+            <i class="fas fa-calendar-check"></i>
+            <span>Attendance</span>
+            <i class="fas fa-chevron-right nav-arrow"></i>
+        </div>
+        <div class="nav-item" data-target="timetable">
+            <i class="fas fa-clock"></i>
+            <span>Timetable</span>
+            <i class="fas fa-chevron-right nav-arrow"></i>
+        </div>
+        <div class="nav-item" data-target="feedback">
+            <i class="fas fa-comment-alt"></i>
+            <span>Feedback</span>
+            <i class="fas fa-chevron-right nav-arrow"></i>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <!-- First Row: Performance Analysis and Enrolled Subjects -->
+        <!-- Performance Analysis -->
+        <div class="profile-card performance-card" style="grid-column: span 3;" data-index="1" id="performance">
+            <h2 class="text-2xl font-bold mb-4">Academic Performance Analysis</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="performance-metrics mt-4">
+                <div class="metric">
+                    <div class="metric-value">84%</div>
+                    <div class="metric-label">Overall Average</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">+12%</div>
+                    <div class="metric-label">Improvement</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">92%</div>
+                    <div class="metric-label">Attendance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subject Enrollment -->
+        <div class="profile-card" style="grid-column: span 3;" data-index="2" id="subjects">
+            <h2 class="text-2xl font-bold mb-4">Enrolled Subjects</h2>
+            <div class="subject-enrollment">
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-square-root-alt text-3xl mb-3"></i>
+                        <span>Mathematics</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Calculus - Derivatives</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-laptop-code text-3xl mb-3"></i>
+                        <span>Computer Science</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Data Structures & Algorithms</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-atom text-3xl mb-3"></i>
+                        <span>Physics</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Quantum Mechanics</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-flask text-3xl mb-3"></i>
+                        <span>Chemistry</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Organic Chemistry - Alcohols</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-dna text-3xl mb-3"></i>
+                        <span>Biology</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Genetics & Evolution</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-front">
+                        <i class="fas fa-book text-3xl mb-3"></i>
+                        <span>English</span>
+                    </div>
+                    <div class="subject-back">
+                        <h3 class="font-bold">Current Topic:</h3>
+                        <p>Shakespeare - Macbeth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row: Attendance Tracker -->
+        <!-- Monthly Attendance Tracker -->
+        <div class="profile-card" style="grid-column: span 6;" data-index="3" id="attendance">
+            <h2 class="text-2xl font-bold mb-4">Yearly Attendance Tracker</h2>
+            <div class="attendance-legend">
+                <div class="legend-item">
+                    <div class="legend-color present"></div>
+                    <span>Present</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color absent"></div>
+                    <span>Absent</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color partial"></div>
+                    <span>Partial</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color holiday"></div>
+                    <span>Holiday</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color sunday"></div>
+                    <span>Sunday</span>
+                </div>
+            </div>
+            <div id="attendanceCalendar" class="attendance-calendar">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+            <div class="attendance-summary">
+                <h3 class="text-xl font-bold">Annual Attendance: 92%</h3>
+                <p>Perfect Attendance Months: January, April, June</p>
+            </div>
+        </div>
+
+        <!-- Timetable -->
+        <div class="profile-card" style="grid-column: span 6;" data-index="4" id="timetable">
+            <h2 class="text-2xl font-bold mb-4">Weekly Timetable</h2>
+            <div class="overflow-x-auto">
+                <table class="improved-timetable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00 - 09:50</td>
+                            <td>Mathematics</td>
+                            <td>Physics</td>
+                            <td>Computer Science</td>
+                            <td>Chemistry</td>
+                            <td>Biology</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 - 10:50</td>
+                            <td>Computer Science</td>
+                            <td>Mathematics</td>
+                            <td>Physics</td>
+                            <td>Biology</td>
+                            <td>Chemistry</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 - 11:50</td>
+                            <td>English</td>
+                            <td>Chemistry</td>
+                            <td>Mathematics</td>
+                            <td>Physics</td>
+                            <td>Computer Science</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 12:50</td>
+                            <td>Physics</td>
+                            <td>Biology</td>
+                            <td>English</td>
+                            <td>Computer Science</td>
+                            <td>Mathematics</td>
+                        </tr>
+                        <tr>
+                            <td>13:00 - 13:50</td>
+                            <td>Biology</td>
+                            <td>English</td>
+                            <td>Chemistry</td>
+                            <td>Mathematics</td>
+                            <td>Physics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Enhanced Professional Feedback Section -->
+        <div class="profile-card" style="grid-column: span 6;" data-index="5" id="feedback">
+            <h2 class="text-2xl font-bold mb-4">Subject Feedback & Insights</h2>
+            <div class="feedback-section">
+                <!-- Mathematics Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container math-bg">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">Mathematics</h3>
+                            <div class="grade-badge grade-a">Grade: A</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Excellent grasp of calculus concepts. Shows strong analytical skills and attention to detail. Consistently participates in class discussions and helps peers understand difficult concepts.</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Strong in algebra and calculus. Consider more practice with trigonometric equations and applications of differentiation. Recommended focus: Integration techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Computer Science Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container cs-bg">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">Computer Science</h3>
+                            <div class="grade-badge grade-a-minus">Grade: A-</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Demonstrates excellent coding skills and problem-solving abilities. The recent project on database design was particularly impressive. Need to improve documentation practices.</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Excels in programming logic and algorithm design. Recommended improvement areas: Time complexity analysis and advanced data structures like graphs and trees.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Physics Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container physics-bg">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">Physics</h3>
+                            <div class="grade-badge grade-b-plus">Grade: B+</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Good theoretical understanding but needs to improve problem-solving speed. Lab work is meticulous, but could benefit from more confidence in experimental design.</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Strong in conceptual understanding. Needs more practice with numerical problems, especially in mechanics and electromagnetism. Recommended focus: Free-body diagrams.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chemistry Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container chem-bg">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">Chemistry</h3>
+                            <div class="grade-badge grade-b">Grade: B</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Performs well in theory but lab reports need more detail and analysis. Recent improvement in organic chemistry concepts is notable. Keep up the good work!</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Strong in periodic trends and chemical bonding. Areas for improvement: Reaction mechanisms and stoichiometric calculations. Recommended focus: Balancing redox equations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Biology Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container bio-bg">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">Biology</h3>
+                            <div class="grade-badge grade-a-minus">Grade: A-</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Exhibits excellent understanding of biological concepts and processes. Diagrams and explanations are clear and concise. Microbiology project was particularly well-executed.</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Excels in cellular biology and genetics. Consider more focus on ecological concepts and evolutionary mechanisms. Recommended resource: Khan Academy's "Natural Selection" series.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- English Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="subject-icon-container eng-bg">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3 class="font-bold text-lg">English</h3>
+                            <div class="grade-badge grade-a">Grade: A</div>
+                        </div>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-user-tie"></i> Teacher's Feedback
+                            </div>
+                            <p>Excellent analytical writing and literary analysis. Recent essay on Shakespearean themes showed deep understanding and original thought. Continue working on oral presentations.</p>
+                        </div>
+                        <div class="feedback-column">
+                            <div class="feedback-source">
+                                <i class="fas fa-robot"></i> AI Learning Insights
+                            </div>
+                            <p>Strong in critical analysis and essay structure. Consider expanding vocabulary and rhetorical techniques. Recommended practice: Weekly creative writing exercises.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-wave"></div>
+        
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Explore TeachAlly</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">AI Tutor</a></li>
+                    <li><a href="#">Community Forums</a></li>
+                    <li><a href="#">Learning Resources</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Learning Resources</h3>
+                <ul>
+                    <li><a href="#">Math Help Center</a></li>
+                    <li><a href="#">Science Experiments</a></li>
+                    <li><a href="#">Language Arts</a></li>
+                    <li><a href="#">Coding & Technology</a></li>
+                    <li><a href="#">Study Techniques</a></li>
+                    <li><a href="#">Homework Helper</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Ave, Learning City</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@teachally.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest in education technology and learning resources.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                
+                <h3 style="margin-top: 20px;">Popular Topics</h3>
+                <div class="interactive-buttons">
+                    <a href="#" class="interactive-button">#Mathematics</a>
+                    <a href="#" class="interactive-button">#Science</a>
+                    <a href="#" class="interactive-button">#Coding</a>
+                    <a href="#" class="interactive-button">#Languages</a>
+                    <a href="#" class="interactive-button">#History</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Elements -->
+        <div class="floating-learning-bubble">
+            <i class="fas fa-graduation-cap fa-2x"></i>
+        </div>
+        
+        <div class="footer-brain"></div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TeachAlly - Illuminating Minds, Empowering Futures | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+    <script src="Student_Profile.js"></script>
+</body>
+</html>
